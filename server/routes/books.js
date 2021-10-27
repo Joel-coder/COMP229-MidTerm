@@ -25,7 +25,7 @@ router.get("/", (req, res, next) => {
 router.get("/add", (req, res, next) => {
   res.render("books/details", {
     title: "Add contact",
-    books: book,
+    books: "",
   });
 });
 
