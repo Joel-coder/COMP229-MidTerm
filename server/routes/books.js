@@ -50,10 +50,19 @@ router.post("/add", (req, res, next) => {
 });
 
 // GET the Book Details page in order to edit an existing Book
-router.get("/:id", (req, res, next) => {
-  /*****************
-   * ADD CODE HERE *
-   *****************/
+router.get("/edit/:id", (req, res, next) => {
+  let id = req.params.id;
+  book.findById(id, (err, book) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.render("books/details", {
+        title: "Edit Contact Information",
+        books: book,
+      });
+    }
+  });
 });
 
 // POST - process the information passed from the details form and update the document
